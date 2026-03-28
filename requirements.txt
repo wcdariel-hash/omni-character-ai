@@ -1,0 +1,5 @@
+streamlit>=1.30.0
+langchain>=0.1.0
+langchain-google-genai
+langchain-core>=0.1.0
+requests
