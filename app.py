@@ -141,7 +141,7 @@ def main():
     # --- MENÚ LATERAL ---
     with st.sidebar:
         st.title("🌌 OmniCharacterAI")
-        st.markdown("*Impulsado por Gemini 2.5 Flash en la Nube*")
+        st.markdown("*Impulsado por Gemini 1.5 Flash en la Nube*")
         st.markdown("---")
         
         selected_style = st.selectbox(
