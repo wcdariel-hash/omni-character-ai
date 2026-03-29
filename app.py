@@ -103,7 +103,7 @@ def init_state():
 # --- MOTOR DE RESUMEN RECURSIVO ---
 def summarize_old_messages(old_messages, current_summary):
     try:
-        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.3, google_api_key=st.secrets["GOOGLE_API_KEY"])
+        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.3, google_api_key=st.secrets["GOOGLE_API_KEY"])
         
         history_text = "\\n".join([f"{msg['role']}: {msg['content']}" for msg in old_messages])
         
@@ -207,7 +207,7 @@ def main():
         manage_memory()
         
         try:
-            llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.7, google_api_key=st.secrets["GOOGLE_API_KEY"])
+            llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.7, google_api_key=st.secrets["GOOGLE_API_KEY"])
             sys_prompt = get_system_prompt(selected_style, st.session_state.summary)
             
             lc_messages = [SystemMessage(content=sys_prompt)]
