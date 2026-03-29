@@ -105,7 +105,7 @@ def summarize_old_messages(old_messages, current_summary):
     try:
       llm = ChatGoogleGenerativeAI(model="models/gemini-1.5-flash", temperature=0.8, google_api_key=st.secrets["GOOGLE_API_KEY"])
 
-        history_text = "\n".join([f"{msg['role']}: {msg['content']}" for msg in old_messages])
+      history_text = "\n".join([f"{msg['role']}: {msg['content']}" for msg in old_messages])
 
         prompt = (
             "Eres un condensador de memoria omnisciente. Tu tarea es resumir la siguiente porción de historia, "
