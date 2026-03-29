@@ -107,7 +107,7 @@ def summarize_old_messages(old_messages, current_summary):
 
       history_text = "\n".join([f"{msg['role']}: {msg['content']}" for msg in old_messages])
 
-        prompt = (
+      prompt = (
             "Eres un condensador de memoria omnisciente. Tu tarea es resumir la siguiente porción de historia, "
             "fusionándola orgánicamente con la memoria persistente anterior (si existía) para preservar el contexto vital a largo plazo. "
             "Retén hitos importantes, decisiones clave y motivaciones emocionales de forma concisa. ESCRIBE EL RESUMEN EXCLUSIVAMENTE EN ESPAÑOL.\\n\\n"
