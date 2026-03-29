@@ -116,8 +116,8 @@ def summarize_old_messages(old_messages, current_summary):
             "Redacta la Sinopsis Persistente actualizada:"
         )
         
-        response = llm.invoke([HumanMessage(content=prompt)])
-        return response.content
+      response = llm.invoke([HumanMessage(content=prompt)])
+      return response.content
     except Exception as e:
         st.error(f"⚠️ Error generando memoria a largo plazo con Gemini: {e}")
         return current_summary
