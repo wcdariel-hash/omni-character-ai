@@ -103,11 +103,10 @@ def init_state():
 # --- MOTOR DE RESUMEN RECURSIVO ---
 def summarize_old_messages(old_messages, current_summary):
     try:
-      llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.8, google_api_key=st.secrets["GOOGLE_API_KEY"])
+     llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.8, google_api_key=st.secrets["GOOGLE_API_KEY"])
+     history_text = "\n".join([f"{msg['role']}: {msg['content']}" for msg in old_messages])
 
-      history_text = "\n".join([f"{msg['role']}: {msg['content']}" for msg in old_messages])
-
-      prompt = (
+     prompt = (
             "Eres un condensador de memoria omnisciente. Tu tarea es resumir la siguiente porción de historia, "
             "fusionándola orgánicamente con la memoria persistente anterior (si existía) para preservar el contexto vital a largo plazo. "
             "Retén hitos importantes, decisiones clave y motivaciones emocionales de forma concisa. ESCRIBE EL RESUMEN EXCLUSIVAMENTE EN ESPAÑOL.\\n\\n"
@@ -116,8 +115,8 @@ def summarize_old_messages(old_messages, current_summary):
             "Redacta la Sinopsis Persistente actualizada:"
         )
         
-      response = llm.invoke([HumanMessage(content=prompt)])
-      return response.content
+     response = llm.invoke([HumanMessage(content=prompt)])
+     return response.content
     except Exception as e:
         st.error(f"⚠️ Error generando memoria a largo plazo con Gemini: {e}")
         return current_summary
